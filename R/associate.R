@@ -66,3 +66,9 @@ associate <- function(forms, data, txt= 1, tbl= 1, fig= 1, y.name= NULL, x.name=
 }
 
 
+
+
+
+
+
+

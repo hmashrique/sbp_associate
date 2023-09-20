@@ -23,6 +23,7 @@ compare=function(form,data,
                  clr="rainbow")
 
 {
+  #library('stats')
   data=data.frame(data)
 
   form.vars=get.vars(form)
@@ -242,9 +243,6 @@ compare.centers=function(form,
   y=data[,y.clm]
 
   grp.clm=form.vars$x.var[1]
-
-
-
   y=data[,y.clm]
   grp=data[,grp.clm]
 
@@ -267,7 +265,7 @@ compare.centers=function(form,
   anova.res=anova(lm.res)
   aov.res=aov(lm.res)
   tukey.res=TukeyHSD(aov.res)
-  welch.res=oneway.test(y~grp,var.equal=F)
+  welch.res=oneway.test(y~grp,var.equal = F)
   kw.res=kruskal.test(y~grp)
   pwt.res=pairwise.t.test(y,grp,p.adjust.method="holm",pool.sd=F)
   pww.res=pairwise.wilcox.test(y,grp,plev.adjust.method="holm",paired=F)
