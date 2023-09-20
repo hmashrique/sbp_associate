@@ -17,7 +17,26 @@ associate(
 )
 }
 \arguments{
-\item{line}{}
+\item{forms}{The formula that takes the 2 numeric variables.}
+
+\item{data}{The data frame that contains the 2 variables.}
+
+\item{txt}{A flag that indicates to display text. Default value is 1.}
+
+\item{tbl}{A flag that indicates to display the number of table(s). Default value is 1.}
+
+\item{fig}{A flag that indicates to display the number of figure(s). Default value is 1.}
+
+\item{y.name}{The 'y' variable in the formula. Default value is NULL.}
+
+\item{x.name}{The 'x' variable in the formula. Default value is NULL.}
+
+\item{clr}{The color of the text. Default value is 'black'.}
+
+\item{line}{The number of lines in the result. Default value is 1.}
+}
+\value{
+returns the statistical relationship between the two variables with texts, plots and references.
 }
 \description{
 Compare two variables based on their type

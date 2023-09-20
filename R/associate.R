@@ -9,17 +9,17 @@
 
 #' Compare two variables based on their type
 #'
-#' @param forms
-#' @param data
-#' @param txt
-#' @param tbl
-#' @param fig
-#' @param y.name
-#' @param x.name
-#' @param clr
-#' @param line
+#' @param forms The formula that takes the 2 numeric variables.
+#' @param data The data frame that contains the 2 variables.
+#' @param txt A flag that indicates to display text. Default value is 1.
+#' @param tbl A flag that indicates to display the number of table(s). Default value is 1.
+#' @param fig A flag that indicates to display the number of figure(s). Default value is 1.
+#' @param y.name The 'y' variable in the formula. Default value is NULL.
+#' @param x.name The 'x' variable in the formula. Default value is NULL.
+#' @param clr The color of the text. Default value is 'black'.
+#' @param line The number of lines in the result. Default value is 1.
 #'
-#' @return
+#' @return returns the statistical relationship between the two variables with texts, plots and references.
 #' @export
 #'
 #' @examples

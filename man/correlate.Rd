@@ -37,7 +37,7 @@ correlate(
 \item{line}{The number of lines in the result. Default value is 1.}
 }
 \value{
-returns the correlation significance of the variables with texts, plots.
+returns the statistical significance between the two variables with texts, plots.
 }
 \description{
 Correlate
