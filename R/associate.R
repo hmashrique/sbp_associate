@@ -1,12 +1,4 @@
 
-#
-# source(
-#   "https://raw.githubusercontent.com/stan-pounds/Simple-Biostats-Program/main/setup-SBP.R"
-# )
-
-# associate function
-
-
 #' Compare two variables based on their type
 #'
 #' @param forms The formula that takes the 2 numeric variables.
