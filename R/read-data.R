@@ -1,27 +1,37 @@
+#' Read data file of different extensions
+#'
+#' @param file.name the name of the file with extension.
+#'
+#' @return returns the data of the file as a data frame.
+#' @export
+#'
+#' @examples
+#' read.data("binary.csv")
+#'
 read.data=function(file.name=NULL)
-  
+
 {
   ##################################
   # Interactively choose file if no file is provided
   if (is.null(file.name))
     file.name=file.choose()
-  
+
   ##############################################
   # Determine whether the file exists
   real.file=file.exists(file.name)
-  
+
   if (!real.file)
   {
     alert(file.name,"does not exist.  Please choose file interactively.")
     file.name=file.choose()
   }
   R.file.name=gsub('\\','/',file.name,fixed=T)
-  
+
   ######################################
   # Determine the type of data
   file.type=file.extension(file.name)
   alert(basename(file.name)," is a ",file.type," file.")
-  
+
   ######################################
   # Read a csv or txt file
   if (file.type%in%c("csv","txt"))
@@ -33,13 +43,13 @@ read.data=function(file.name=NULL)
     alert('my.data=read.data("',R.file.name,'")')
     return(dset)
   }
-  
+
   ####################################
   # load an R data file
   if (file.type=="Rdata")
   {
     loaded.objects=try(load(file.name,verbose=T))
-    for (i in 1:length(loaded.objects)) 
+    for (i in 1:length(loaded.objects))
     {
       R.code=paste0("try(View(",loaded.objects[i],"))")
       eval(parse(text=R.code))
@@ -50,8 +60,8 @@ read.data=function(file.name=NULL)
     alert("Use View(data.object.name) to see the data in the viewer.")
     return(invisible())
   }
-  
-  
+
+
   ###################################
   # read an xlsx file
   if (file.type=="xlsx")
@@ -77,18 +87,27 @@ read.data=function(file.name=NULL)
       return(dset)
     }
   }
-  
+
   #############################
-  # If all of the above fails 
-  
+  # If all of the above fails
+
   alert("Data not read.")
   alert("Please specify an Rdata, xlsx, txt (tab delimited text) or csv file.")
   stop("No data read.")
 }
 
 ##################################
-# Extract a file extension
 
+#' Extract a file extension type
+#'
+#' @param file.name the name of the file with extension
+#'
+#' @return returns the extension name of the file
+#' @export
+#'
+#' @examples
+#' file.extension("binary.csv")
+#'
 file.extension=function(file.name)
 {
   split.name=unlist(strsplit(file.name,split=".",fixed=T))
@@ -99,6 +118,16 @@ file.extension=function(file.name)
 ####################################
 # Alert the user with a message
 
+#' User alert message
+#'
+#' @param ... the alert message as string in the function
+#'
+#' @return prints the alert message.
+#' @export
+#'
+#' @examples
+#' alert("Encountered a problem")
+#'
 alert=function(...)
 {
   alert.message=paste0(...)
@@ -108,6 +137,16 @@ alert=function(...)
 ####################################
 # Alert the user and stop the calculation
 
+#' Alert user and stop calculation
+#'
+#' @param ... the error message as string in the function
+#'
+#' @return print the alert message and stops execution of program.
+#' @export
+#'
+#' @examples
+#' stop.alert("found error: program will halt")
+#'
 stop.alert=function(...)
 {
   alert.message=paste0(...)

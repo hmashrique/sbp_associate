@@ -2,7 +2,7 @@
 % Please edit documentation in R/compare.R
 \name{compare}
 \alias{compare}
-\title{The function which compares a variable with a categorical variable}
+\title{The function which compares two variables.}
 \usage{
 compare(
   form,
@@ -18,7 +18,7 @@ compare(
 \arguments{
 \item{form}{The formula which is used to define the relationship of the two variables.}
 
-\item{data}{The dataset from which the two variables are taken.}
+\item{data}{The data set from which the two variables are taken.}
 
 \item{txt}{A flag that indicates to display text. Default value is 1.}
 
@@ -26,15 +26,22 @@ compare(
 
 \item{fig}{A flag that indicates to display the number of figure(s). Default value is 1.}
 
-\item{y.name}{The 'y' variable in the formula. Default value is NULL.}
+\item{y.name}{The 'y' variable name in the formula. Default value is NULL. #ask_Stan}
 
-\item{grp.name}{The 'group' variable in the formula. Default value is NULL.}
+\item{grp.name}{The 'group' name of the variable in the formula. Default value is NULL. #ask_Stan}
 
-\item{clr}{The color of the graphs in the plot(s).}
+\item{clr}{The color(s) used in the plot(s).}
 }
 \value{
-The text,plots and references describing the relationship between the variables.
+returns the relationship between the variables with a narrative,plots and references.
 }
 \description{
-The function which compares a variable with a categorical variable
+The function which compares two variables.
+}
+\examples{
+data_frame <- data.frame(len = c(11.2, 8.2, 10.0, 27.3, 14.5, 26.4, 4.2, 15.2, 14.7, 10.4),
+                         supp = c("VC","OJ","VC","VC","VC","OJ","VC","OJ","VC","OJ"),
+                         dose = c(0.5, 0.5, 0.5, 2.0, 1.5, 1.0, 1.0, 2.0, 0.5, 2.0))
+compare(supp~len, data_frame)
+
 }

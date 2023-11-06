@@ -20,7 +20,7 @@ correlate(
 \arguments{
 \item{form}{The formula that takes the 2 numeric variables.}
 
-\item{data}{The data frame that contains the 2 variables.}
+\item{data}{The data set that contains the 2 variables.}
 
 \item{txt}{A flag that indicates to display text. Default value is 1.}
 
@@ -32,14 +32,21 @@ correlate(
 
 \item{x.name}{The 'x' variable in the formula. Default value is NULL.}
 
-\item{clr}{The color of the text. Default value is 'black'.}
+\item{clr}{The color in the plot(s). Default value is 'black'.}
 
-\item{line}{The number of lines in the result. Default value is 1.}
+\item{line}{The number of lines in the result. Default value is 1. #ask_Stan}
 }
 \value{
-returns the statistical significance between the two variables with texts, plots.
+returns the statistical significance between the two variables with figures, plots and a narrative.
 }
 \description{
 Correlate
 Find correlation between 2 numeric variables.
+}
+\examples{
+data_frame <- data.frame(len = c(11.2, 8.2, 10.0, 27.3, 14.5, 26.4, 4.2, 15.2, 14.7, 10.4),
+                         supp = c("VC","OJ","VC","VC","VC","OJ","VC","OJ","VC","OJ"),
+                         dose = c(0.5, 0.5, 0.5, 2.0, 1.5, 1.0, 1.0, 2.0, 0.5, 2.0))
+correlate(len~dose, data_frame)
+
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/associate.R
 \name{associate}
 \alias{associate}
-\title{Compare two variables based on their type}
+\title{Associate: Compare two variables based on their type}
 \usage{
 associate(
   forms,
@@ -17,9 +17,9 @@ associate(
 )
 }
 \arguments{
-\item{forms}{The formula that takes the 2 numeric variables.}
+\item{forms}{The formula that takes the 2 variables.}
 
-\item{data}{The data frame that contains the 2 variables.}
+\item{data}{The data set name that contains the 2 variables.}
 
 \item{txt}{A flag that indicates to display text. Default value is 1.}
 
@@ -27,17 +27,25 @@ associate(
 
 \item{fig}{A flag that indicates to display the number of figure(s). Default value is 1.}
 
-\item{y.name}{The 'y' variable in the formula. Default value is NULL.}
+\item{y.name}{The 'y' variable name in the formula. Default value is NULL. #ask_Stan}
 
-\item{x.name}{The 'x' variable in the formula. Default value is NULL.}
+\item{x.name}{The 'x' variable name in the formula. Default value is NULL. #ask_Stan}
 
-\item{clr}{The color of the text. Default value is 'black'.}
+\item{clr}{The color(s) in the plot(s). Default value is 'black'.}
 
-\item{line}{The number of lines in the result. Default value is 1.}
+\item{line}{The number of lines in the result. Default value is 1. #ask_Stan}
 }
 \value{
-returns the statistical relationship between the two variables with texts, plots and references.
+returns the statistical relationship between the two variables with a narrative, plots and references.
 }
 \description{
-Compare two variables based on their type
+Associate: Compare two variables based on their type
+}
+\examples{
+data_frame <- data.frame(len = c(11.2, 8.2, 10.0, 27.3, 14.5, 26.4, 4.2, 15.2, 14.7, 10.4),
+                         supp = c("VC","OJ","VC","VC","VC","OJ","VC","OJ","VC","OJ"),
+                         dose = c(0.5, 0.5, 0.5, 2.0, 1.5, 1.0, 1.0, 2.0, 0.5, 2.0))
+associate(len~supp, data_frame)
+associate(len~dose, data_frame)
+
 }
