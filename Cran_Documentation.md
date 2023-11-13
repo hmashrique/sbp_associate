@@ -10,7 +10,7 @@ SBP functions:
     - fresh.start(): clean R memory and start over #done 
 
 - colors.R 
-    - define.colors(n, clr.palette= "rainbow") <span style="color:blue">#done</span>.
+    - define.colors(n, clr.palette= "rainbow") #done
     - show.palettes(n.colors=8) #done 
     - show.colors() #done 
 
